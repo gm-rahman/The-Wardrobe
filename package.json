@@ -4,9 +4,9 @@
   "main": "./src/app.js",
   "scripts": {
     "build:css": "tailwindcss -i ./src/static/CSS/main.css -o ./src/static/CSS/output.css --watch",
-    "dev": "concurrently \"npm run dev:app\" \"npm run dev:server\" \"npm run build:css\"",
+    "dev": "node api.js && concurrently \"npm run dev:app\" \"npm run dev:server\" \"npm run build:css\"",
     "dev:app": "nodemon ./src/app.js",
-    "start": "concurrently \"npm run start:app\" \"npm run start:server\"",
+    "start": "node api.js && concurrently \"npm run start:app\" \"npm run start:server\"",
     "start:app": "node ./src/app.js",
     "dev:server": "nodemon ./src/Server/Server.js",
     "start:server": "node ./src/Server/Server.js"
